@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub de Ferramentas - Gauss</title>
+    
+    <!-- Importando a fonte Sora -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #000000;
+            --accent-color: #00D26A;
+            --bg-color: #F7F9FC;
+            --card-bg: #FFFFFF;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+            --card-hover: #F1F5F9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hub-container {
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .hub-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hub-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .hub-header p {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        /* Estilização dos Cartões Clicáveis */
+        .app-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Borda verde no topo do cartão */
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.06);
+            border-color: var(--accent-color);
+        }
+
+        .app-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .app-card h2 {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .app-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .app-card .card-footer {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .app-card .card-footer::after {
+            content: '→';
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .app-card:hover .card-footer::after {
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 600px) {
+            .hub-header h1 {
+                font-size: 26px;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hub-container">
+        <header class="hub-header">
+            <h1>Portal de Ferramentas</h1>
+            <p>Selecione a aplicação que deseja acessar</p>
+        </header>
+
+        <div class="cards-grid">
+            
+            <!-- CARTÃO 1: Relatório de Geração -->
+            <a href="https://relatorio-geracao.vercel.app/" target="_blank" class="app-card">
+                <h2>Relatório de Geração</h2>
+                <p>Formulário para cálculo de desempenho de usinas, ajuste de degradação e geração de gráficos comparativos.</p>
+                <div class="card-footer">Acessar ferramenta</div>
+            </a>
+
+            <!-- CARTÃO 2: Proposta Pós-Venda -->
+            <a href="https://proposta-posvenda.vercel.app/" target="_blank" class="app-card">
+                <h2>Proposta Pós-Venda</h2>
+                <p>Gerador de propostas comerciais para clientes de pós-venda e manutenções.</p>
+                <div class="card-footer">Acessar ferramenta</div>
+            </a>
+
+            <!-- CARTÃO 3: Espaço para futuras ferramentas -->
+            <!-- Quando tiver um novo link, basta descomentar e alterar os dados abaixo -->
+            <!--
+            <a href="#" target="_blank" class="app-card">
+                <h2>Nova Ferramenta</h2>
+                <p>Breve descrição da nova ferramenta que será adicionada ao portal.</p>
+                <div class="card-footer">Acessar ferramenta</div>
+            </a>
+            -->
+
+        </div>
+    </div>
+
+</body>
+</html>
